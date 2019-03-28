@@ -1,52 +1,15 @@
-import React, { Component } from "react";
-import { ANIMALS } from "petfinder-client";
+import React from "react";
+import SearchBox from "./SearchBox";
+import { navigate } from "@reach/router";
 
-class SearchParams extends Component {
-  state = {
-    location: "Seatle, WA",
-    animal: "",
-    breed: ""
-  };
-
-  handleLocationChange = event => {
-    this.setState({
-      location: event.target.value
-    });
-  };
-  handleAnimalChange = event => {
-    this.setState({
-      animal: event.target.value
-    });
-  };
-
+class SearchParams extends React.Component {
+  handleSearchSubmit() {
+    navigate(`/`);
+  }
   render() {
     return (
-      <div className="search-params">
-        <label htmlFor="location">
-          Location
-          <input
-            onChange={this.handleLocationChange}
-            id="location"
-            value={this.state.location}
-            placeholder="Location"
-          />
-        </label>
-        <label htmlFor="animal">
-          Animal
-          <select
-            id="animal"
-            value={this.state.animal}
-            onChange={this.handleAnimalChange}
-            onBlur={this.handleAnimalChange}
-          >
-            <option />
-            {ANIMALS.map(animal => (
-              <option key={animal} value={animal}>
-                {animal}
-              </option>
-            ))}
-          </select>
-        </label>
+      <div className="search-route">
+        <SearchBox search={this.handleSearchSubmit} />
       </div>
     );
   }

@@ -20,9 +20,16 @@ class Carousel extends React.Component {
   };
   render() {
     const { photos, active } = this.state;
+    const defaultPhoto =
+      "https://images.pexels.com/photos/1663421/pexels-photo-1663421.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+
     return (
       <div className="carousel">
-        <img src={photos[active].value} alt="animal" />
+        <img
+          src={photos[0] ? photos[active].value : defaultPhoto}
+          alt="animal"
+        />
+
         <div className="carousel-smaller">
           {photos.map((photo, index) => (
             /* eslint-disable-next-line */
