@@ -11,55 +11,35 @@ class SearchBox extends Component {
     return (
       <Consumer>
         {context => (
-          <div className="search-params">
-            <form onSubmit={this.handleFormSubmit}>
-              <label htmlFor="location">
-                Location
-                <input
-                  onChange={context.handleLocationChange}
-                  id="location"
-                  value={context.location}
-                  placeholder="Location"
-                />
-              </label>
+          <form onSubmit={this.handleFormSubmit}>
+            <div className="form-row">
+              <div className="form-group col-md-2">
+                <label className="search-label" htmlFor="location">
+                  <input type="text" className="form-control" onChange={context.handleLocationChange} id="location" value={context.location} placeholder="Location"/>
+                </label>
+              </div>
+              <div className="form-group col-md-4">
+                <label className="search-label" htmlFor="animal">
+                  <select id="animal" className="form-control" value={context.animal} onChange={context.handleAnimalChange} onBlur={context.handleAnimalChange} >
+                    <option defaultValue>animal</option>
+                    {ANIMALS.map(animal => (<option key={animal} value={animal}>{animal}</option>))}
+                  </select>
+                </label>
+              </div>
+              <div className="form-group col-md-4">
+                <label className="search-label" htmlFor="breed">
+                  <select id="breed" className="form-control" value={context.breed} onChange={context.handleBreedChange} onBlur={context.handleBreedChange}>
+                    <option>Breed</option>
+                    {context.breeds.map(breed => (<option key={breed} value={breed}>{breed}</option>))}
+                  </select>
+                </label>
+              </div>
+              <div className="form-group col-md-2">
+                  <button type="submit" className="btn btn-danger">Search</button>
+              </div>
+            </div>
+          </form>
 
-              <label htmlFor="animal">
-                Animal
-                <select
-                  id="animal"
-                  value={context.animal}
-                  onChange={context.handleAnimalChange}
-                  onBlur={context.handleAnimalChange}
-                >
-                  <option />
-                  {ANIMALS.map(animal => (
-                    <option key={animal} value={animal}>
-                      {animal}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
-              <label htmlFor="breed">
-                Breed
-                <select
-                  id="breed"
-                  value={context.breed}
-                  onChange={context.handleBreedChange}
-                  onBlur={context.handleBreedChange}
-                  disabled={!context.breeds.length}
-                >
-                  <option />
-                  {context.breeds.map(breed => (
-                    <option key={breed} value={breed}>
-                      {breed}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <button>SUBMIT</button>
-            </form>
-          </div>
         )}
       </Consumer>
     );

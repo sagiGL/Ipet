@@ -8,7 +8,7 @@ class SearchParams extends React.Component {
   }
   render() {
     return (
-      <div className="search-route">
+      <div className="search-route container">
         <SearchBox search={this.handleSearchSubmit} />
       </div>
     );

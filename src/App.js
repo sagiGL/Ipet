@@ -18,8 +18,8 @@ class App extends React.Component {
 
     this.state = {
       location: "Seattle, WA",
-      animal: "",
-      breed: "",
+      animal: "animal",
+      breed: "Corgi",
       breeds: [],
       handleAnimalChange: this.handleAnimalChange,
       handleBreedChange: this.handleBreedChange,
@@ -60,14 +60,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <header>
-          <Link to="/">Adopt Me!</Link>
-          <Link to="/search-params">
-            <span aria-label="search" role="img">
-              🔎
-            </span>
-          </Link>
+      <div className="app">
+        <header className="header">
+          <Link to="/"><div className="app-title ">Tinbark️<img className="title-logo" src="http://i.imgur.com/1tqBeLA.png" alt="red pow"/></div></Link>
         </header>
         <Provider value={this.state}>
           <Router>

@@ -10,9 +10,7 @@ const petfinder = pf({
 
 class Details extends React.Component {
   state = {
-    loading: true,
-    showModal: false
-  };
+    loading: true, };
   toggleModal = () => this.setState({ showModal: !this.state.showModal });
   componentDidMount() {
     petfinder.pet
@@ -51,27 +49,38 @@ class Details extends React.Component {
       location,
       description,
       media,
-      showModal
     } = this.state;
     return (
       <div className="details">
-        <Carousel media={media} />
-        <div>
+        <div className="pet-gallery">
+          <Carousel media={media}/>
+        </div>
+        <div className="pet-info alert alert-danger">
           <h1>{name}</h1>
           <h2>
             {animal} - {breed} - {location}
           </h2>
-          <button onClick={this.toggleModal}>Adopt {name}</button>
           <p>{description}</p>
-          {showModal ? (
-            <Modal>
-              <h1>Wanna Adopt {name}?</h1>
-              <div className="buttons">
-                <button onClick={this.toggleModal}>Yes</button>
-                <button onClick={this.toggleModal}>Definitely Yes</button>
+          <button type="button" className="btn btn-danger btn-adopt" data-toggle="modal" data-target="#exampleModalCenter">
+            <h2>YOU WANT ME?</h2>
+          </button>
+          <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog"
+               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalCenterTitle">Are You Sure?</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn badge-success" data-dismiss="modal">YES</button>
+                  <button type="button" className="btn btn-primary">DEFINITELY YES</button>
+                </div>
               </div>
-            </Modal>
-          ) : null}
+            </div>
+          </div>
         </div>
       </div>
     );

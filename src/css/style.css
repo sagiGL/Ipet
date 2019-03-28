@@ -1,0 +1,103 @@
+/*font-family: 'Baloo Chettan', cursive;*/
+/*font-family: 'Indie Flower', cursive;*/
+/*font-family: 'Karla', sans-serif;*/
+a:hover {
+  text-decoration: none;
+}
+html{
+  width: 100%;
+}
+body {
+  background: crimson;
+  font-family: 'Karla', sans-serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+#root {
+  width: 70%;
+}
+.app {
+  background: whitesmoke;
+  padding: 20px;
+  border-radius: 25px;
+  width: 100%;
+}
+.pet {
+  width: 100%;
+  height: 100px;
+  display: block;
+  margin: 15px ;
+}
+
+
+/*--------Header----------*/
+.app-title{
+  color: crimson;
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 6em;
+  text-align: center;
+}
+.title-logo {
+  height: 80px;
+}
+.app-title:hover{
+  color: #d00930;
+}
+/*------SearchBox---------*/
+.search-label {
+  display:-webkit-box ;
+}
+
+.description{
+  font-family: 'Indie Flower', cursive;
+}
+/*--------Results---------*/
+.pet-item  {
+  margin-bottom: 10px;
+  border-radius: 25px;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+.pet-item:hover {
+background: lightpink;
+}
+.pet-item-image {width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+/*---------Details----------*/
+.pet-gallery{
+  border-radius: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 70%;
+}
+.pet-gallery-image {
+  border-radius: 25px;
+  height: 500px;
+  width: 80%;
+  background: no-repeat 50% 50%;
+}
+.pet-info{
+  border-radius: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*margin: 30px;*/
+  width: 85%;
+}
+.btn-adopt {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
